@@ -1,0 +1,659 @@
+/*!
+<----------------------------------------
+  Theme Name: british-marketplace
+  Theme URI: http://british-marketplace.net
+  Author: infoinlet.net.
+  Author URI: http://british-marketplace.net
+  Description: british-marketplace is a Creative HTML5 Template for Saas, Startup & any ytpe of confarence.
+  Version: 1.0.0
+  Tags: app, british-marketplacelanding page, app landing page, app showcase template, application services, gradient color, landing, marketing, responsive template, seo, software, Software Services, startup, tech, web application landing page.
+---------------------------------------->
+*/
+/*
+>>> TABLE OF CONTENTS:
+<----------------------------------------------------------------
+  01. Default CSS
+  02. Global css
+  03. Header
+  04. sidebar menu
+  05. About
+  07. Roadmap
+  08. News
+  09. Team
+  10. Contact
+---------------------------------------------------------------->
+
+
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+body,
+button,
+input,
+select,
+textarea {
+	color: $desc-color;
+	font-family: $roboto;
+	font-size: 1rem;
+	font-weight: 400;
+	outline: none;
+    border: none;
+}
+h1 {
+	font-size: $fs-h2;
+}
+h2 {
+	font-size: $fs-h2;
+}
+h3 {
+	font-size: $fs-h3;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+}
+h4 {
+	font-size: $fs-h4;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+
+}
+h5 {
+ 	font-size: $fs-h5;
+}
+h6 {
+	font-size: $fs-h6;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: $title-color;
+	font-weight: 700;
+	font-family: $roboto;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+h1>a, h2>a, h3>a, h4>a, h5>a, h6>a {
+	color: inherit;
+	font-size: inherit;
+	font-weight: 700;
+	font-family: $roboto;
+}
+
+@media screen and (min-width: 576px) {
+	h1 {
+	    font-size: $fs-h1;
+	}
+	h2 {
+	    font-size: $fs-h2;
+	}
+	h3 {
+	    font-size: $fs-h3;
+	}
+	h4 {
+	    font-size: $fs-h4;
+	}
+	h5 {
+	    font-size: $fs-h5;
+	}
+	h6 {
+	    font-size: $fs-h6;
+	}
+}
+
+p {
+	font-size: $fs-small-x;
+	margin: 0 0 15px;
+	color: $title-color;
+	line-height: 1.5;
+	font-family: $roboto;
+}
+
+span {
+    font-family: $roboto;
+    font-size: $fs-small-x;
+}
+
+a {
+	color: $desc-color;
+	text-decoration: none;
+	display: inline-block;
+    outline: none;
+    font-family: $roboto;
+    @include transition($transition);
+    &:hover {
+        text-decoration: none;
+    }
+}
+a:focus {
+	outline: none;
+}
+a:hover,
+a:active {
+	color: #000;
+	outline: 0;
+}
+img,
+video {
+	height: auto;
+	max-width: 100%;
+	@include transition($transition);
+}
+
+//==== all section overflow
+section {
+    overflow: hidden;
+    .section-wrapper {
+        position: relative;
+    }
+}
+//==== all section overflow
+
+//*=== common section-heder ===*//
+.section-header {
+    text-align: center;
+    padding-bottom: 30px;
+    h3 {
+        margin: 0;
+        font-size: 26px;
+        color: $theme-color;
+        @include breakpoint (sm) {
+            font-size: 34px;
+        }
+    }
+}
+//*=== common section-heder ===*//
+
+/*======= all custom btn css =======*/
+button.btn {
+    display: inline-table;
+}
+.btn{
+    font-size: 14px;
+    padding: 8px 25px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    background: $theme-color;
+    transition: all 0.3s ease-in-out;
+    &:focus {
+        box-shadow: none;
+    }
+    &:hover {
+        background: #e9b453;
+        span, i {
+            color: $white-color;
+        }
+    }
+    span {
+        font-size: 12px;
+        color: $white-color;
+    }
+    .btn-ripple{
+        background: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        border-radius: 100%;
+        animation: ripple 1s;
+        transform: scale(0);
+    }
+}
+/*======= all custom btn css =======*/
+
+//?======= all keyframes css start =====?//
+@keyframes ripple {
+    100%{
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+//?======= all keyframes css ends  =====?//
+
+/*==== common item css start =====*/
+.post-item {
+    margin: 10px 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 0px 2px #eee;
+    @include transition ($transition);
+    &:hover {
+        // box-shadow: -1px 7px 35px rgba(0, 0, 0, .05);
+        .post-thumb {
+            img {
+                transform: scale(1.1);
+            }
+            .post-wish {
+                transform: scale3d(1.1);
+                right: 0;
+            }
+            .post-cart {
+                opacity: 1;
+                bottom: 10px;
+            }
+        }
+        .post-text {
+            h6 {
+                a {
+                    color: $theme-color;
+                }
+            }
+        }
+        &::after {
+            animation: collection 1s;
+        }
+    }
+    &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        background: rgba(255,255,255,0.2);
+        border-radius: 100%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+    .post-thumb {
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+        @include breakpoint (sm) {
+            height: 200px;
+        }
+        @include breakpoint (lg) {
+            height: 300px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include transition ($transition);
+        }
+        .post-wish {
+            position: absolute;
+            top: 0;
+            right: -50px;
+            transform: scale3d(0);
+            @include transition ($transition);
+            button {
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                cursor: pointer;
+                border-radius: 0 0 0 5px;
+                &.active {
+                    background-color: $theme-color!important;
+                    span {
+                        svg {
+                            g {
+                                path {
+                                    fill: $white-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .post-cart {
+            position: absolute;
+            bottom: -38px;
+            opacity: 0;
+            width: 100%;
+            text-align: center;
+            @include transition ($transition);
+            button {
+                padding: 10px 15px;
+                display: inline-flex;
+                background: transparent;
+                &.custom-btn {
+                    background: $theme-color;
+                    border-radius: 20px;
+                    &::before {
+                        border-radius: 20px;
+                        background: #000;
+                    }
+                    span {
+                        color: $white-color;
+                        font-size: 12px;
+                        svg {
+                            margin-right: 8px;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}
+/*==== common item css ends  =====*/
+
+/*=== common slider arrow css start ====*/
+.arrow {
+    @include breakpoint (max-lg) {
+        display: none;
+    } 
+    .next, .prev {
+       position: absolute;
+       top: 50%;
+       z-index: 9;
+       transform: translateY(-50%);
+       text-align: center;
+       cursor: pointer;
+       &:hover {
+           span {
+               background: $theme-color;
+               i {
+                  color: $white-color
+               }
+               svg {
+                   path {
+                        fill: #fff;
+                   }
+               }
+           }
+           &.swiper-button-disabled {
+               span {
+                   background: gainsboro;
+               }
+           }
+       }
+       &.swiper-button-disabled {
+           cursor: no-drop;
+           span {
+               i {
+                   color: #474747;
+               }
+           }
+       }
+       span {
+           height: 32px;
+           width: 32px;
+           line-height: 32px;
+           border-radius: 100%;
+           display: inline-block;
+           @include transition ($transition);
+           i {
+               font-size: 30px;
+           }
+       }
+   }
+   .next {
+       right: -30px;
+   }
+   .prev {
+       left: -30px;
+   }
+}
+/*=== common slider arrow css ends  ====*/
+
+
+//#==== form css start ====#//
+form {
+    .input-group {
+        position: relative;
+        input {
+            &.form-control {
+                width: 100%;
+                height: 40px;
+                font-size: 14px;
+                padding-left: 35px;
+                z-index: 9;
+                position: relative;
+                border: 1px solid $theme-color;
+                border-radius: 4px!important;
+                background: transparent;
+                transition: all 0.3s ease-in-out;
+                &::placeholder {
+                    font-size: 12px;
+                    color: $theme-color;
+                    transition: all 0.3s ease-in-out;
+                }
+                &:focus {
+                    border: 1px solid #000;
+                    box-shadow: none;
+                    &::placeholder {
+                        color: #000;
+                        padding-left: 5px;
+                    }
+                    ~ i {
+                        color: #000;
+                        svg {
+                            g {
+                            path {
+                                fill: #000;
+                            }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            color: $theme-color;
+            transform: translateY(-50%);
+            &.view_pass {
+                left: auto;
+                right: 10px;
+                cursor: pointer;
+                z-index: 999;
+            }
+        }
+        label {
+            position: absolute;
+            font-size: 12px;
+            top: 30%;
+            left: 30px;
+            opacity: 0;
+            padding: 0 5px;
+            background: #fff;
+            transition: all 0.3s ease-in-out;
+            &.control-label {
+                opacity: 1;
+                top: -30px;
+                left: 0;
+                &.h6 {
+                    @include breakpoint (sm) {
+                        top: -25px;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        textarea {
+            padding: 10px;
+            width: 100%;
+            font-size: 12px;
+            height: 100px !important;
+            border: 1px solid $theme-color;
+            border-radius: 3px;
+            background: transparent;
+            transition: all 0.3s ease-in-out;
+            &::placeholder {
+                color: $theme-color;
+                font-size: 14px;
+                transition: all 0.3s ease-in-out;
+            }
+            &:focus {
+                border-color: #000;
+                &::placeholder {
+                    color: #000;
+                    padding-left: 5px;
+                }
+            }
+        }
+        .controls {
+            select {
+                height: 40px;
+                border: 1px solid $theme-color;
+            }
+        }
+
+    }
+    button {
+        &.custom-btn {
+            margin-top: 20px;
+        }
+    }
+}
+.input-group  > input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    left: 10px;
+    opacity: 1;
+    padding: 5px;
+    z-index: 111;
+}
+//#==== form css end ====#//
+
+/*======= all scrollbar css =====*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $theme-color;
+    border-radius: 5px;
+}
+/*======= all scrollbar css =====*/
+
+@keyframes preloader-fx {
+    0% {
+        -webkit-transform: scale(0, 0);
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes preloader-fx {
+    0% {
+        -webkit-transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    100% {
+        -webkit-transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+
+%flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+%absolute {
+    position: absolute;
+    content: '';
+}
+
+
+%shadow {
+    -webkit-box-shadow: 3px 0 35px rgba(0, 0, 0, .12);
+    box-shadow: 3px 0 35px rgba(0, 0, 0, .12);
+}
+
+%border {
+    border: 10px solid #ed4a4382;
+}
+
+%widget-mt {
+    margin-top: 35px;
+}
+
+%widget-pad {
+    padding: 20px 20px 30px;
+}
+
+
+//? common social media
+.btn-facebook {
+    background: $facebook;
+    i {
+        color: $white-color;
+    }
+}
+
+.btn-twitter {
+    background: $twitter;
+    border: 1px solid !important;
+    i {
+        color: $white-color
+    }
+}
+
+.btn-twitter-sm {
+    background: $twitter;
+    i {
+        color: $white-color;
+    }
+}
+
+.btn-google {
+    background: $google;
+    i {
+        color: $white-color;
+    }
+}
+
+.btn-github {
+    background: slategray;
+    i {
+        color: $white-color;
+    }
+
+}
+
+.btn-linkedin {
+    background: $linkedin;
+    i {
+        color: $white-color;
+    }
+}
+
+//? all social media
+
+
+//!===== Internet Exporer support css =====//
+.row>* {
+    max-width: 100%;
+    padding-right: 5px!important;
+    padding-left: 5px!important;
+}
+//!===== Internet Exporer support css =====//
+
+
+@keyframes collection{
+    0%{opacity:1}
+    40%{opacity:1}
+    100%{width:200%;height:200%;opacity:0}
+}

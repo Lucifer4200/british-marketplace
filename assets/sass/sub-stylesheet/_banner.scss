@@ -1,0 +1,51 @@
+//*===== banner area start ====*//
+.banner-area {
+    .banner-slider {
+        position: relative;
+        overflow: hidden;
+        .swiper-wrapper {
+            .swiper-slide {
+                height: 200px;
+                @extend %flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%!important;
+                @include breakpoint (sm) {
+                    height: 250px;
+                }
+                @include breakpoint (lg) {
+                    height: 320px;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .banner-content {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    h3 {
+                        margin: 0;
+                        color: $white-color;
+                        @include breakpoint (max-sm) {
+                            font-size: 25px;
+                        }
+                    }
+                }
+            }
+        }
+        .swiper-pagination {
+            .swiper-pagination-bullet-active {
+                background: $theme-color;
+            }
+        }
+    }
+    .swiper-button-next, .swiper-button-prev {
+        @include breakpoint (max-lg) {
+            display: none;
+        }
+    }
+}
+//*===== banner area End ====*//
